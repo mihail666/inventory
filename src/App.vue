@@ -1,21 +1,17 @@
 <template>
-  <h1>inventory app</h1>
-  <i-inventoty />
+  <i-inventoty-wrapper />
 </template>
 
 <script>
-import IInventoty from './components/i-inventoty.vue'
+import IInventotyWrapper from './components/inventory/i-inventoty-wrapper.vue'
+
 
 export default {
   name: 'App',
-  components: {IInventoty}
+  components: {IInventotyWrapper}
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
+
 </style>
