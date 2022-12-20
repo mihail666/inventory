@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="border container__side"
+ 
+    <div class="border container__side container_wrapper"
     :class="`${is_expanded ? 'is-expanded' : ''}`"
     >
       <aside>
@@ -10,7 +10,7 @@
         <h3>Menu</h3>
       </aside>
     </div>
-  </div>
+  
 </template>
 
 <script>
@@ -25,7 +25,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '@/assets/style/variable.scss';
 .container__side {
+  background: $bgBlack;
   position: absolute;
   width: 25%;
   top: 50px;

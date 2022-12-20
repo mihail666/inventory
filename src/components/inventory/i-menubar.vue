@@ -1,5 +1,5 @@
 <template>
-   <div class="description-item border">
+   <div class="container_wrapper border">
       <h1>invent app</h1>
       <h3>fill out the form</h3>
       <img src="@/assets/logo.png" alt="">
@@ -8,7 +8,7 @@
       <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
       <p>Lorem ipsum dolor sit amet consectetur</p>
-      <div class="btn" @click="changeTheme">
+      <div class="btn border" @click="changeTheme" >
         сменить тему
       </div>
     </div>
@@ -47,3 +47,14 @@ export default defineComponent({
 //   }
 // }
 </script>
+
+<style lang="scss">
+.description-item {
+  width: 20%;
+  margin-right: 20px;
+  padding: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+</style>

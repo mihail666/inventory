@@ -1,152 +1,19 @@
 <template>
-  <div class="container"
-    :class="`${is_expTheme ? 'is_expTheme' : ''}`">
-    <i-menubar
-    @is_expended_theme="isExpendedTheme"
-    />
+  <div class="container" :class="`${is_expTheme ? 'is_expTheme' : ''}`">
+    <i-menubar @is_expended_theme="isExpendedTheme" />
     <div class="inventory">
-      <div class="inventory__container border">
+      <div class="inventory__container container_wrapper  border">
         <div class="inventory_grid">
-          <div class="inventory__item menu-toggle-wrap">
+          <div v-for="item in items" :key="item.id" class="inventory__item menu-toggle-wrap">
             <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
+              <img src="@/assets/logo.png" alt="">
             </div>
           </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          <div class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img class="inventory__item__img" src="@/assets/logo.png" alt="">
-            </div>
-          </div>
-          
         </div>
       </div>
     </div>
   </div>
-  <i-sidebar 
-    :is_expanded="is_expanded"
-  />
+  <i-sidebar :is_expanded="is_expanded" />
 </template>
 
 <script>
@@ -159,6 +26,7 @@ export default {
   },
   data() {
     return {
+      items: 25,
       is_expTheme: false,
       is_expanded: true,
     }
@@ -170,7 +38,7 @@ export default {
     },
     isExpendedTheme() {
       console.log('parent')
-      this.is_expTheme = !this.is_expTheme  
+      this.is_expTheme = !this.is_expTheme
     }
   }
 }
@@ -179,14 +47,7 @@ export default {
 <style lang="scss">
 @import '@/assets/style/variable.scss';
 
-.description-item {
-  width: 20%;
-  margin-right: 20px;
-  padding: 20px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+
 
 .inventory {
   width: 100%;
@@ -194,7 +55,7 @@ export default {
 
 .inventory__container {
   display: flex;
-  
+
 }
 
 .inventory_grid {
@@ -216,16 +77,17 @@ export default {
   text-align: center;
   justify-content: center;
 
-  &__img {
-    width: 70%;
+  & img {
+    width: 60%;
     background-size: contain;
   }
 }
+
 .inventory__item:not(:nth-child(5n)) {
   border-right: $border-int;
 }
+
 .inventory__item:not(:nth-last-child(-n)) {
   border-bottom: $border-int ;
 }
-
 </style>
