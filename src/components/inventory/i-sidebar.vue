@@ -18,7 +18,7 @@ export default {
   props: {
     is_expanded: {
       type: Boolean,
-      default: false
+      default: true
     }
   }
 }
@@ -28,9 +28,9 @@ export default {
 .container__side {
   position: absolute;
   width: 25%;
-  top: 20px;
+  top: 50px;
   right: -0px;
-  height: 80vh;
+  height: 80%;
   transition: 1s;
 }
 

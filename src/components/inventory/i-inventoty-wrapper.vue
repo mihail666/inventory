@@ -1,14 +1,9 @@
 <template>
-  <div class="container">
-    <div class="description-item border">
-      <h1>invent app</h1>
-      <h3>fill out the form</h3>
-      <img src="@/assets/logo.png" alt="">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, illo!</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing</p>
-      <p>Lorem ipsum dolor sit amet consectetur</p>
-    </div>
+  <div class="container"
+    :class="`${is_expTheme ? 'is_expTheme' : ''}`">
+    <i-menubar
+    @is_expended_theme="isExpendedTheme"
+    />
     <div class="inventory">
       <div class="inventory__container border">
         <div class="inventory_grid">
@@ -156,13 +151,16 @@
 
 <script>
 import ISidebar from './i-sidebar.vue'
+import IMenubar from './i-menubar.vue';
 export default {
   components: {
-    ISidebar
+    ISidebar,
+    IMenubar
   },
   data() {
     return {
-      is_expanded: false,
+      is_expTheme: false,
+      is_expanded: true,
     }
   },
   methods: {
@@ -170,6 +168,10 @@ export default {
       this.is_expanded = !this.is_expanded;
       console.log(this.is_expanded)
     },
+    isExpendedTheme() {
+      console.log('parent')
+      this.is_expTheme = !this.is_expTheme  
+    }
   }
 }
 </script>

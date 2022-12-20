@@ -1,6 +1,8 @@
 $white: rgb(255, 255, 255);
 $black: #000;
-$dark: #202020;
+$bgBlack: #252525;
+$bgWhite: rgb(213, 213, 213);
+$dark: #383838;
 $dark-light: #707070;
 $grey: #888888;
 
@@ -34,4 +36,4 @@ $btnShadow: 5px 5px 10px rgba($dark, 1);
 $pading: 10px;
 $margin: 10px;
 
-$border-int: 2px solid rgb($dark, 1);
+$border-int: 2px solid rgb($black, 1);

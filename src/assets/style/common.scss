@@ -1,7 +1,5 @@
 @import './variable.scss';
 body {
-  padding: $pading*2;
-  background: $dark;
   overflow: hidden;
 }
 #app {
@@ -10,15 +8,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
+  padding: $pading*5;
+  background: $bgBlack;
   display: flex;
   width: 100%;
   height: 100%;
-  height: 80vh;
-  
+}
+.is_expTheme{
+  background: $bgWhite;
+
 }
 
 .border {
-  border: 1px solid #000;
+  border: 2px solid #000;
   border-radius: 12px;
-  background: rgb(56, 56, 56);
+  background: $dark;
+}
+
+.btn {
+  background: $grey;
+  cursor: pointer;
+  padding: $pading;
 }
