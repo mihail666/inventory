@@ -1,7 +1,7 @@
 <template>
  
-    <div class="border container__side container_wrapper"
-    :class="`${is_expanded ? 'is-expanded' : ''}`"
+    <div class="borderBlack container__side container_wrapper"
+    :class="`${is_expanded ? 'is-expanded' : ''} ${is_expTheme ? 'borderWhite' : ''}`"
     >
       <aside>
         <div class="logo">
@@ -19,7 +19,12 @@ export default {
     is_expanded: {
       type: Boolean,
       default: true
+    },
+    is_expTheme: {
+      type: Boolean,
+      default: true
     }
+    
   }
 }
 </script>
@@ -33,7 +38,7 @@ export default {
   top: 50px;
   right: -0px;
   height: 80%;
-  transition: 1s;
+  transition: .5s;
 }
 
 aside {

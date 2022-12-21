@@ -1,10 +1,19 @@
 <template>
   <div class="container" :class="`${is_expTheme ? 'is_expTheme' : ''}`">
-    <i-menubar @is_expended_theme="isExpendedTheme" />
+    <i-menubar 
+      @is_expended_theme="isExpendedTheme" 
+      :is_expTheme="is_expTheme"
+    />
     <div class="inventory">
-      <div class="inventory__container container_wrapper  border">
+      <div 
+        class="inventory__container container_wrapper borderBlack" 
+        :class="`${is_expTheme ? 'borderWhite' : ''}`"
+        >
         <div class="inventory_grid">
-          <div v-for="item in items" :key="item.id" class="inventory__item menu-toggle-wrap">
+          <div 
+            v-for="item in items" 
+            :key="item.id" 
+            class="inventory__item menu-toggle-wrap">
             <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
               <img src="@/assets/logo.png" alt="">
             </div>
@@ -13,7 +22,10 @@
       </div>
     </div>
   </div>
-  <i-sidebar :is_expanded="is_expanded" />
+  <i-sidebar 
+    :is_expanded="is_expanded" 
+    :is_expTheme="is_expTheme"
+  />
 </template>
 
 <script>

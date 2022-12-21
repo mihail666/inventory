@@ -13,27 +13,33 @@ body {
   display: flex;
   width: 100%;
   height: 100vh;
+  transition: .5s;
 }
 .is_expTheme{
   background: $bgWhite;
-
 }
 
-.border {
+.borderBlack {
   border: 2px solid #000;
   border-radius: 12px;
   background: $dark;
+  transition: .5s;
+}
+.borderWhite {
+  background: $white;
 }
 
 .btn {
+  
+  width: 300px;
   background: $grey;
   cursor: pointer;
   padding: $pading;
+  margin: 0 auto;
 }
 .container_wrapper{
   height: 80vh;
   margin-right: 20px;
-  
   justify-content: center;
   align-items: center;
   text-align: center;
