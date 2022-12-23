@@ -1,21 +1,19 @@
 <template>
-  <div class="inventory">
-      <div 
-        class="inventory__container container_wrapper borderBlack" 
-        :class="`${is_expTheme ? 'borderWhite' : ''}`"
-        >
-        <div class="inventory_grid">
-          <div 
-            v-for="item in items" 
-            :key="item.id" 
-            class="inventory__item menu-toggle-wrap">
-            <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-              <img src="@/assets/logo.png" alt="">
+  <div class="inventory" @click="getItems">
+    <div class="inventory__container container_wrapper borderBlack" :class="`${is_expTheme ? 'borderWhite' : ''}`">
+      <div class="inventory_grid">
+        <div v-for="getItem in getItems()" :key="getItem.id" class="inventory__item menu-toggle-wrap">
+          <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
+            <div class="drop-zone" >
+              {{ getItem.title }}
+              
+              
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -34,7 +32,48 @@ export default defineComponent({
   },
   data() {
     return {
-      items: 25,
+      elems_matrix: 25,
+      items: [
+
+        {
+          id: 0,
+          title: 'Item A',
+          list: 1,
+        },
+        {
+          id: 1,
+          title: 'Item B',
+          list: 1,
+        },
+        {
+          id: 2,
+          title: 'Item C',
+          list: 2,
+        },
+      ],
+      get_items: new Array().fill({
+        id: null,
+        title: null,
+        list: null
+      }),
+    }
+  },
+  computed: {
+    emptyElemsCount() {
+      return this.elems_matrix - this.items.length
+    },
+    
+  },
+  methods: {
+    getItemsEmpty(count) {
+      return new Array(count).fill({
+        id: null,
+        title: null,
+        list: null
+      })
+    },
+    getItems() {
+      return [...this.items, ...this.getItemsEmpty(this.emptyElemsCount)]
     }
   },
   props: {
@@ -48,6 +87,7 @@ export default defineComponent({
 
 <style lang="scss">
 @import '@/assets/style/variable.scss';
+
 .inventory {
   width: 100%;
 }
@@ -88,11 +128,12 @@ export default defineComponent({
 .inventory__item:not(:nth-last-child(-n)) {
   border-bottom: $border-int ;
 }
+
 .inventory__item:nth-child(21),
 .inventory__item:nth-child(22),
 .inventory__item:nth-child(23),
 .inventory__item:nth-child(24),
 .inventory__item:nth-child(25) {
-  border-bottom: none ;
+  border-bottom: none;
 }
 </style>
