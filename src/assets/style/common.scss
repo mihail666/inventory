@@ -15,28 +15,29 @@ body {
   height: 100vh;
   transition: .5s;
 }
-.is_expTheme{
+.containerTheme{
   background: $bgWhite;
 }
 
-.borderBlack {
+.BlackTheme {
   border: 2px solid #000;
   border-radius: 12px;
   background: $dark;
   transition: .5s;
 }
-.borderWhite {
+.WhiteTheme {
   background: $white;
 }
 
 .btn {
-  width: 300px;
+  width: 100%;
   background: $grey;
   cursor: pointer;
   padding: $pading;
   margin: 0 auto;
 }
 .container_wrapper{
+  width: 24%;
   height: 80vh;
   margin-right: 20px;
   justify-content: center;

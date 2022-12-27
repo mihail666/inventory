@@ -1,15 +1,15 @@
 <template>
-  <div class="inventory" @click="getItems">
-    <div class="inventory__container container_wrapper borderBlack" :class="`${is_expTheme ? 'borderWhite' : ''}`">
-      <div class="inventory_grid">
-        <div v-for="getItem in getItems()" :key="getItem.id" class="inventory__item menu-toggle-wrap">
-          <div class="inventory__item__content menu-toggle" @click="ToggleMenu">
-            <div class="drop-zone" >
-              {{ getItem.title }}
-              
-              
-            </div>
-          </div>
+  <div class="items_grid">
+    <div
+      class="items__item menu-toggle-wrap"
+      v-for="Item in getItems()"
+      :key="Item.id" 
+      @click="sendItem(Item)">
+      <div 
+        class="items__content menu-toggle" 
+        @click="showSide">
+        <div class="drop-zone">
+          {{ Item.title }}
         </div>
       </div>
     </div>
@@ -19,15 +19,18 @@
 <script>
 import { defineComponent } from 'vue'
 
-export default defineComponent({
-  setup(_, { emit }) {
 
-    const ToggleMenu = function () {
-      console.log('меню открыто')
-      emit('is_expended')
+export default defineComponent({
+  setup() {
+    const showSide = function () {
+      this.$store.dispatch('SHOW_SIDE')
+    }
+    const sendItem = function (Item) {
+      this.$store.dispatch('ITEM_FOR_SIDE', Item)
     }
     return {
-      ToggleMenu
+      showSide,
+      sendItem
     }
   },
   data() {
@@ -50,6 +53,11 @@ export default defineComponent({
           title: 'Item C',
           list: 2,
         },
+        {
+          id: 3,
+          title: 'Item D',
+          list: 2,
+        }
       ],
       get_items: new Array().fill({
         id: null,
@@ -62,7 +70,6 @@ export default defineComponent({
     emptyElemsCount() {
       return this.elems_matrix - this.items.length
     },
-    
   },
   methods: {
     getItemsEmpty(count) {
@@ -75,12 +82,6 @@ export default defineComponent({
     getItems() {
       return [...this.items, ...this.getItemsEmpty(this.emptyElemsCount)]
     }
-  },
-  props: {
-    is_expTheme: {
-      type: Boolean,
-      default: true
-    }
   }
 })
 </script>
@@ -88,15 +89,8 @@ export default defineComponent({
 <style lang="scss">
 @import '@/assets/style/variable.scss';
 
-.inventory {
-  width: 100%;
-}
 
-.inventory__container {
-  display: flex;
-}
-
-.inventory_grid {
+.items_grid {
   display: grid;
   grid-gap: 0px;
   grid-template-columns: repeat(auto-fill, 20%);
@@ -106,7 +100,7 @@ export default defineComponent({
   justify-content: center;
 }
 
-.inventory__item {
+.items__item {
   height: 16vh;
   position: relative;
   list-style: none;
@@ -120,20 +114,29 @@ export default defineComponent({
     background-size: contain;
   }
 }
-
-.inventory__item:not(:nth-child(5n)) {
+.items__item:not(:nth-child(5n)) {
   border-right: $border-int;
 }
 
-.inventory__item:not(:nth-last-child(-n)) {
+.items__item:not(:nth-last-child(-n)) {
   border-bottom: $border-int ;
 }
 
-.inventory__item:nth-child(21),
-.inventory__item:nth-child(22),
-.inventory__item:nth-child(23),
-.inventory__item:nth-child(24),
-.inventory__item:nth-child(25) {
+.items__item:nth-child(21),
+.items__item:nth-child(22),
+.items__item:nth-child(23),
+.items__item:nth-child(24),
+.items__item:nth-child(25) {
   border-bottom: none;
+}
+
+.drop-zone {
+  width: 80px;
+  height: 80px;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 </style>

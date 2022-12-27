@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import IInventotyWrapper from './components/inventory/i-inventoty-wrapper.vue'
+import IInventotyWrapper from './components/inventory/iInventotyWrapper.vue'
 
 
 export default {
